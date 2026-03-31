@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Sanctuary | Luxury Coastal Retreat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#dadada",
+              "inverse-surface": "#2f3131",
+              "surface-container-high": "#e8e8e8",
+              "on-secondary-fixed-variant": "#314865",
+              "surface-container": "#eeeeee",
+              "tertiary-fixed-dim": "#e9c176",
+              "secondary-fixed": "#d2e4ff",
+              "surface-tint": "#3b6756",
+              "surface-container-low": "#f3f3f3",
+              "secondary-container": "#c4dcff",
+              "secondary": "#0a2540",
+              "primary-fixed-dim": "#a2d1bb",
+              "primary": "#0f3d2e",
+              "surface-bright": "#f9f9f9",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#261900",
+              "on-error": "#ffffff",
+              "inverse-primary": "#a2d1bb",
+              "surface-container-highest": "#e2e2e2",
+              "inverse-on-surface": "#f0f1f1",
+              "outline-variant": "#c0c8c3",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1a1c1c",
+              "on-primary-fixed": "#002116",
+              "on-surface-variant": "#414944",
+              "surface-variant": "#e2e2e2",
+              "primary-fixed": "#beedd7",
+              "on-primary-container": "#7ba894",
+              "tertiary-fixed": "#ffdea5",
+              "surface-container-lowest": "#ffffff",
+              "tertiary": "#e9c176",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#001c37",
+              "primary-container": "#0f3d2e",
+              "outline": "#717974",
+              "tertiary-container": "#483200",
+              "on-tertiary-container": "#be9953",
+              "on-secondary-container": "#49617f",
+              "on-primary-fixed-variant": "#234f3f",
+              "background": "#f9f9f9",
+              "surface": "#f9f9f9",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#b0c8eb",
+              "on-tertiary-fixed-variant": "#5d4201",
+              "on-background": "#1a1c1c",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel-enhanced {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f3d2e 0%, #0a2540 100%);
+        }
+        .shadow-luxury {
+            box-shadow: 0 20px 40px rgba(10, 37, 64, 0.08);
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .card-3d {
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .card-3d:hover {
+            transform: translateY(-12px) rotateX(4deg) rotateY(-2deg);
+            box-shadow: 0 30px 60px rgba(15, 61, 46, 0.15);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.02); box-shadow: 0 0 20px 0 rgba(16, 185, 129, 0.2); }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 2s infinite ease-in-out;
+        }
+    </style>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-x-hidden">
+<!-- Shared Component: TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl flex items-center justify-between px-6 py-4 shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-emerald-900 cursor-pointer" data-icon="menu">menu</span>
+<a class="text-2xl font-serif italic text-emerald-900 tracking-tighter" href="#">The Sanctuary</a>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-emerald-900 font-semibold transition-colors duration-300 hover:text-amber-500" href="#estates">The Estates</a>
+<a class="text-emerald-800/60 transition-colors duration-300 hover:text-amber-500" href="#wellness">Wellness</a>
+<a class="text-emerald-800/60 transition-colors duration-300 hover:text-amber-500" href="#dining">Dining</a>
+<a class="text-emerald-800/60 transition-colors duration-300 hover:text-amber-500" href="#experiences">Experiences</a>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 rounded-md font-medium tracking-wide scale-95 active:scale-90 transition-transform">
+        Book Now
+    </button>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0 parallax-bg" data-alt="ultra-luxurious infinity pool overlooking a tropical emerald coastline at dusk" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtxzgEvMz8waGRIXLeMocaYdQ9qYyt7FpxBUc4WseMPKl7rilTTaFh5niLuVrHmZT6wmBRBRm0oCXvWTKk6pcusgIYjF9IwDFW9ocHXOLATx6SBkrysfXFVMqUrCKlQc1XKJB0NVl-iPUH22bsHahKKx-kPOKsrjCi7PIO4CpJvr02v0kJENV2j3lrVOkE5PV7jADh8ArFrSlyALD6_Q99QJQAojG_pxeZn6IIF5vojaohfKQjQaqF4kzjFGx8jK3BD-TO3erEwxg')"></div>
+<div class="absolute inset-0 bg-primary/25 z-10"></div>
+<div class="relative z-20 text-center px-6 max-w-4xl">
+<div class="glass-panel-enhanced p-10 md:p-16 rounded-2xl shadow-2xl transform translate-y-8 backdrop-blur-xl">
+<span class="text-tertiary font-bold uppercase tracking-[0.4em] text-xs mb-6 block">Experience the Sanctuary</span>
+<h1 class="font-headline text-5xl md:text-7xl text-primary leading-tight mb-8 font-bold tracking-tight">
+                Relax. Refresh. <br/> <span class="italic font-normal">Reconnect.</span>
+</h1>
+<p class="text-on-surface-variant text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+                A secluded coastal retreat where the forest meets the ocean. Discover the art of whisper-quiet luxury.
+            </p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-primary text-white px-10 py-4 rounded-full shadow-lg hover:shadow-primary/20 transition-all duration-300 font-medium">
+                    Reserve Your Suite
+                </button>
+<button class="bg-white/50 backdrop-blur-md border border-white/40 px-10 py-4 rounded-full hover:bg-white/70 transition-all text-primary font-medium">
+                    Explore Video
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- The Estates (Rooms) -->
+<section class="py-32 px-6 bg-surface" id="estates">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 scroll-reveal">
+<div class="max-w-2xl">
+<h2 class="font-headline text-5xl text-primary mb-6">Curated Sanctuaries</h2>
+<p class="text-on-surface-variant text-lg">Every dwelling is designed to be an extension of the landscape, utilizing raw stone, local timber, and expansive glass to dissolve the boundary between indoors and out.</p>
+</div>
+<a class="text-primary font-semibold flex items-center gap-2 group" href="#">
+                View All Accommodations <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Deluxe Room -->
+<div class="card-3d bg-surface-container-lowest rounded-2xl overflow-hidden scroll-reveal">
+<div class="h-80 overflow-hidden">
+<img alt="Deluxe Room" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="minimalist deluxe resort room with warm oak finishes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkbZYjfpP1E2dlGW1VVxtXf0Q1OGm66_wDWS9UnVhJ-eZ9RTQx866foaeVWzKYNN_eErJM5oMcqTmNwuLOXol3oyc8heBpvWp6BSjdikWVmjQ7cAOvhMcNMHnSgQMeL5yufMHqoPIcgVRx7OFrOWtcki3U9HSx7aqtIybh6VDDzfhfhZygAa6vBfBZZiwYjNFC5P3VSH9oDqZF25WoFAGV42F0a2anDjrzDbD-pM6xrla5IAgK1IVKZiMeem7ZM7yTAEaRZKD3f1E"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-2xl text-primary">Deluxe Pavilion</h3>
+<span class="text-tertiary font-bold">From $450</span>
+</div>
+<ul class="text-on-surface-variant space-y-2 mb-8 text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary" data-icon="check">check</span> Garden View Terrace</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary" data-icon="check">check</span> King-size Sanctuary Bed</li>
+</ul>
+<button class="w-full py-3 border border-outline-variant/30 rounded-md hover:bg-primary hover:text-white transition-colors duration-300">Explore Details</button>
+</div>
+</div>
+<!-- Suite -->
+<div class="card-3d bg-surface-container-lowest rounded-2xl overflow-hidden scroll-reveal" style="transition-delay: 100ms">
+<div class="h-80 overflow-hidden">
+<img alt="Ocean Suite" class="w-full h-full object-cover" data-alt="oceanfront luxury suite with private infinity pool" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVt4A1AXvtS3HbLGTdoHvCHYd2BKBanPOeuD9HcawWtg_o_f4qOS2HxeF6rbQlvjADKamg1aInA0QWbLuC0LZqYaWey5IBplvrKloLfdXmtovXUxIEFDC8iwC-edk1dY1do08iJDYQUQ2rPWuwC_qPI_DnLPObcuu6lRNYv3XymOzm1YiyTPsR4D47_-Vox8OteAVnJWDt8F4h9cT7Z_Qgcmh8UrQymMCYlsp4-YpicPJtqmsh3T5KUrEIOcSWNG2SL1EZf7x-V9A"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-2xl text-primary">Ocean Suite</h3>
+<span class="text-tertiary font-bold">From $850</span>
+</div>
+<ul class="text-on-surface-variant space-y-2 mb-8 text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary" data-icon="check">check</span> Private Infinity Pool</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary" data-icon="check">check</span> 24/7 Personal Host</li>
+</ul>
+<button class="w-full py-3 border border-outline-variant/30 rounded-md hover:bg-primary hover:text-white transition-colors duration-300">Explore Details</button>
+</div>
+</div>
+<!-- Family Villa -->
+<div class="card-3d bg-surface-container-lowest rounded-2xl overflow-hidden scroll-reveal" style="transition-delay: 200ms">
+<div class="h-80 overflow-hidden">
+<img alt="Family Estate" class="w-full h-full object-cover" data-alt="large multi-bedroom family villa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaTV5OQvAU2qftT2Ye9mN9Db0mosQw1_nUKIGt511oINbPRG_WCWCV2AkP9sgRo_Us3e20qIRC6_4sUoF4ABYkFbh1HkY8PtQY83am2tyh_GOO5-gsJpqsJYY64m8-ZgPMQtKkMbP0wNiel--bvVN0ZgqVq6Ce080d5yH2L55Ie8l1qylSvRDN_ZkhL1P5Ld71M9eKoNNfmFMMRMBvZAM48f6FWUgabXYfyJdW_gTwRSqOGK_h4GR-pILGXxLTg3rSu-QsucfSH8A"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-2xl text-primary">The Sanctuary Estate</h3>
+<span class="text-tertiary font-bold">From $1,600</span>
+</div>
+<ul class="text-on-surface-variant space-y-2 mb-8 text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary" data-icon="check">check</span> 3 Bedrooms &amp; Living Wing</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary" data-icon="check">check</span> Private Beach Access</li>
+</ul>
+<button class="w-full py-3 border border-outline-variant/30 rounded-md hover:bg-primary hover:text-white transition-colors duration-300">Explore Details</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Amenities Grid -->
+<section class="py-32 bg-surface-container-low overflow-hidden">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-24 scroll-reveal">
+<span class="text-tertiary font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Refined Living</span>
+<h2 class="font-headline text-5xl text-primary">Unrivaled Amenities</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-outline-variant/20 border border-outline-variant/20 rounded-3xl overflow-hidden scroll-reveal">
+<div class="bg-surface-container-low p-12 text-center hover:bg-white transition-colors duration-500 group">
+<span class="material-symbols-outlined text-5xl text-primary mb-6 block transition-transform group-hover:scale-110" data-icon="pool">pool</span>
+<h4 class="font-headline text-xl mb-2 text-secondary">Infinity Pools</h4>
+<p class="text-on-surface-variant text-sm">Three tiers of thermal relaxation overlooking the bay.</p>
+</div>
+<div class="bg-surface-container-low p-12 text-center hover:bg-white transition-colors duration-500 group">
+<span class="material-symbols-outlined text-5xl text-primary mb-6 block transition-transform group-hover:scale-110" data-icon="spa">spa</span>
+<h4 class="font-headline text-xl mb-2 text-secondary">The Zen Spa</h4>
+<p class="text-on-surface-variant text-sm">Traditional therapies blended with modern science.</p>
+</div>
+<div class="bg-surface-container-low p-12 text-center hover:bg-white transition-colors duration-500 group">
+<span class="material-symbols-outlined text-5xl text-primary mb-6 block transition-transform group-hover:scale-110" data-icon="restaurant">restaurant</span>
+<h4 class="font-headline text-xl mb-2 text-secondary">Signature Dining</h4>
+<p class="text-on-surface-variant text-sm">Farm-to-table excellence by Chef de Cuisine.</p>
+</div>
+<div class="bg-surface-container-low p-12 text-center hover:bg-white transition-colors duration-500 group">
+<span class="material-symbols-outlined text-5xl text-primary mb-6 block transition-transform group-hover:scale-110" data-icon="fitness_center">fitness_center</span>
+<h4 class="font-headline text-xl mb-2 text-secondary">Fitness Center</h4>
+<p class="text-on-surface-variant text-sm">State-of-the-art equipment with panoramic views.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Gallery (Bento Masonry) -->
+<section class="py-32 px-6">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-[800px]">
+<div class="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl group shadow-luxury scroll-reveal">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="dramatic wide shot of the resort exterior at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYz9XnARhrC2dwDkK54QhnsDoKJvEQ7RryQmfoW3kqAhDdANNkoIAM_c59d3rME0znYULyptrIPuKMXbLEPD1QdW84Q7hq_7anHcLnuKY_2iYzWOqm3mfXO6DzMOGHt8BbUVq5eug5VAbkFu9hPemCae0KwkBXH8GtIzvDbAc2Ch2IX-2dMMdJlRldCQK93rfKmDIxEuG_C_ShXJex8qRUL-tGH8miUT-0I86LXFrf0pguN-Usiqf961DPkec-gGBKeUAEAm5ed8k"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
+<p class="text-white font-headline text-2xl">Evening Radiance</p>
+</div>
+</div>
+<div class="md:col-span-2 md:row-span-1 relative overflow-hidden rounded-2xl group shadow-luxury scroll-reveal" style="transition-delay: 150ms">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="close-up of fresh organic breakfast fruit platter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCypRlvbxxuv6O1TdOmSxdWRy49RCszyrYHpJvx1s8tGp7dJ_JwfOU2AD_Pt0ZHlUA11Cwr1d5Jova7FqZSCJ6JULVhoNHDG3R6QAhemdA0obr2MqwYU1lO2oF49_tBVf03hdfkwXup8fx0U2nmjEwHAdlKWQzvqPTR0-PVCfSbTvTsWh0B1JqmLCBlWZ7_7kfIBsEfA_rBp3KUla1JaT1Crt9_tItzYdwqAKZx1xMJKK9vA2ba5svgZq0xITH5K7PnfJgBVolnM5E"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+<p class="text-white font-headline text-xl">Culinary Arts</p>
+</div>
+</div>
+<div class="md:col-span-1 md:row-span-1 relative overflow-hidden rounded-2xl group shadow-luxury scroll-reveal" style="transition-delay: 300ms">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="vibrant tropical beach" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW2laHmVgMslITcqu1qPtOz4xRAIuaVfowHIxCfTFX_zoK2n0xQ354JV8VLc0mTZpN55XcA6Y9KmNo2sxGvW8fOQEdz9AwHBwCagq6_u1pMem5q8grikQaZhZXpjBiKxFgvQbPjl2NmhfhPeuhynODvALgCe0-11kLSqC_O-BOk_k4VnAUPkpRp-KDfW7vLV7bKt906NW3rpx_bL8X_q915S1e13gYbDX5ClAET5d75Uz1Sj9ZngRnZedTTo68tN5j_94qDG54Sa8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<p class="text-white font-headline text-lg">Hidden Cove</p>
+</div>
+</div>
+<div class="md:col-span-1 md:row-span-1 relative overflow-hidden rounded-2xl group shadow-luxury scroll-reveal" style="transition-delay: 450ms">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="serene morning mist rising from a valley" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl3OxWzdKKPDN6_6ty08rBofngRW0tEWYxXtDM_hsOFMmj4kNEX3IHPHFCga0bKWN2Rm9ZZAXJ2sI7_spsO0qCV_Bt7GiRq748eCPn8YZt0i7X1Xct_5Ml8c4Bscy47pb4EglZrKl_u-Yy-ghz2iL27YZdeRo-pVOZZIHhE-3kfUa4zIZYK41-bwCax76HZXinHovYfjETxiP7kcIBd3N0Nlln8tpnXcb2oqlsV_wKnGxf8MGOCk9ad-EIARD4ceVbErlNOoyA5UA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<p class="text-white font-headline text-lg">Mist Mornings</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-32 hero-gradient text-on-primary">
+<div class="max-w-4xl mx-auto px-6 text-center scroll-reveal">
+<span class="material-symbols-outlined text-tertiary text-6xl mb-8" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<div class="mb-12">
+<p class="font-headline text-3xl md:text-4xl italic leading-relaxed mb-8">
+                "The Sanctuary is not just a resort; it's a recalibration of the soul. The service is invisible yet omnipresent, and the setting is beyond anything I've experienced."
+            </p>
+<div>
+<h5 class="font-bold text-xl mb-1 text-white">Eleanor Harrington</h5>
+<p class="text-tertiary uppercase tracking-widest text-sm font-bold">Editor, Voyage Magazine</p>
+</div>
+</div>
+<div class="flex justify-center gap-4">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+<div class="w-2 h-2 rounded-full bg-white/30"></div>
+<div class="w-2 h-2 rounded-full bg-white/30"></div>
+</div>
+</div>
+</section>
+<!-- Booking & Contact -->
+<section class="py-32 px-6 flex flex-col md:flex-row gap-16 max-w-7xl mx-auto items-start">
+<div class="w-full md:w-1/2 scroll-reveal">
+<div class="bg-white p-10 md:p-14 rounded-3xl shadow-luxury border border-outline-variant/10">
+<h2 class="font-headline text-4xl text-primary mb-8">Begin Your Journey</h2>
+<form class="space-y-8">
+<div class="relative group">
+<label class="block text-[10px] font-bold text-primary/40 uppercase tracking-[0.2em] mb-1">Check In &amp; Out</label>
+<div class="flex gap-4">
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 focus:ring-1 focus:ring-primary transition-all text-sm" type="date"/>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 focus:ring-1 focus:ring-primary transition-all text-sm" type="date"/>
+</div>
+</div>
+<div class="relative group">
+<label class="block text-[10px] font-bold text-primary/40 uppercase tracking-[0.2em] mb-1">Select Sanctuary</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 focus:ring-1 focus:ring-primary transition-all text-sm appearance-none cursor-pointer">
+<option>Deluxe Pavilion</option>
+<option>Ocean Suite</option>
+<option>Sanctuary Estate</option>
+</select>
+</div>
+<button class="w-full bg-primary text-white py-5 rounded-xl font-bold text-lg hover:shadow-2xl transition-all duration-300">
+                    Check Availability
+                </button>
+<div class="pt-4 border-t border-outline-variant/10">
+<button class="w-full flex items-center justify-center gap-3 bg-emerald-50 text-emerald-700 py-4 rounded-xl font-bold transition-all hover:bg-emerald-100 group animate-pulse-soft">
+<span class="material-symbols-outlined text-xl" data-icon="chat">chat</span>
+                        Book via WhatsApp
+                    </button>
+</div>
+</form>
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-12 scroll-reveal" style="transition-delay: 200ms">
+<div>
+<h3 class="font-headline text-3xl text-primary mb-6">Find Your Way Home</h3>
+<p class="text-on-surface-variant mb-10 text-lg">Located on the secluded Northern Peninsula, accessible via private yacht or scenic coastal drive.</p>
+<div class="h-80 w-full rounded-2xl overflow-hidden shadow-luxury relative">
+<img class="w-full h-full object-cover" data-alt="stylized map of sanctuary peninsula" data-location="Bali" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrpk1NTkO954pNxg0jzb-Syi6H1GZXE8PFI0Q_KamO51REZhCvOjR9tpHCSwEmOEjMMd4KhV48pdT20hzN56_R6NuRkQK9CKZl0h4S_-b24plh7tkMLIl9QdqmaaYObsKp9mOZUJ6g9r4ZQrwkxLiwZtCNiXGzcTzH1O_2w492PxLk7tlrMRzJyrJc3c2aEG0-v-NJRvuZ4Ku29vBHQWRKnCpLO1F_jX9j3JneCDXlHGf_mTdLWjPEw6wJ17NWsjcTzyNLMuZmQvM"/>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h4 class="font-bold text-secondary uppercase tracking-widest text-xs mb-4">Location</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Peninsula Way 402, <br/>Secret Bay, SB 90210</p>
+</div>
+<div>
+<h4 class="font-bold text-secondary uppercase tracking-widest text-xs mb-4">Contact</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">+1 (800) SANCTUARY<br/>concierge@sanctuaryresort.com</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-emerald-950 text-amber-200 w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-2">
+<a class="text-emerald-50 font-serif text-2xl" href="#">The Sanctuary</a>
+<p class="font-sans text-xs tracking-widest uppercase text-emerald-100/50">Luxury Coastal Retreat</p>
+</div>
+<div class="flex gap-8">
+<a class="font-sans text-xs tracking-widest uppercase text-emerald-100/50 hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="font-sans text-xs tracking-widest uppercase text-emerald-100/50 hover:text-white transition-colors" href="#">Contact Us</a>
+<a class="font-sans text-xs tracking-widest uppercase text-emerald-100/50 hover:text-white transition-colors" href="#">Press Kit</a>
+</div>
+<div class="text-center md:text-right">
+<p class="font-sans text-xs tracking-widest uppercase text-emerald-100/50">© 2024 The Sanctuary. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
